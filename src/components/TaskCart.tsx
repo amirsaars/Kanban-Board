@@ -12,7 +12,7 @@ interface TaskProps {
 
 function TaskCart({ task, deleteTask, updateTask }: TaskProps) {
   const [mouseIsOver, setMouseIsOver] = useState(false);
-  const [editMode, setEditMode] = useState(true);
+  const [editMode, setEditMode] = useState(false);
   const {
     setNodeRef,
     attributes,
