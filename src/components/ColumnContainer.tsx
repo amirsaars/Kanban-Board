@@ -58,15 +58,15 @@ function ColumnContainer(props: Props) {
         style={style}
         className="
   bg-columnBackgroundColor
-  opacity-40
-  border-2
-  border-rose-500
-  w-[350px]
+  flex
   h-[500px]
   max-h-[500px]
-  rounded-md
-  flex
+  w-[350px]
   flex-col
+  rounded-md
+  border-2
+  border-rose-500
+  opacity-40
   "
       ></div>
     );
@@ -78,12 +78,12 @@ function ColumnContainer(props: Props) {
       style={style}
       className="
   bg-columnBackgroundColor
-  w-[350px]
+  flex
   h-[500px]
   max-h-[500px]
-  rounded-md
-  flex
+  w-[350px]
   flex-col
+  rounded-md
   "
     >
       <div
@@ -93,17 +93,17 @@ function ColumnContainer(props: Props) {
         className="
         bg-mainBackgroundColor
         text-md
+        border-columnBackgroundColor
+        flex
         h-[60px]
         cursor-grab
-        rounded-md
-        rounded-b-none
-        p-3
-        font-bold
-        border-columnBackgroundColor
-        border-4
-        flex
         items-center
         justify-between
+        rounded-md
+        rounded-b-none
+        border-4
+        p-3
+        font-bold
 
         "
       >
@@ -115,14 +115,14 @@ function ColumnContainer(props: Props) {
         >
           <div
             className="
-        flex
-        justify-center
-        items-center
         bg-columnBackgroundColor
+        flex
+        items-center
+        justify-center
+        rounded-full
         px-2
         py-1
         text-sm
-        rounded-full
         "
           >
             {tasks.length}
@@ -132,7 +132,7 @@ function ColumnContainer(props: Props) {
             <input
               value={column.title}
               onChange={(e) => updateColumn(column.id, e.target.value)}
-              className="bg-black focus:border-rose-500 border-rounded outline-none px-2"
+              className="border-rounded bg-black px-2 outline-none focus:border-rose-500"
               autoFocus
               onBlur={() => setEditMode(false)}
               onKeyDown={(e) => {
@@ -145,18 +145,18 @@ function ColumnContainer(props: Props) {
         <button
           onClick={() => deleteColumn(column.id)}
           className="
-        stroke-gray-500
-        hover:stroke-white
         hover:bg-columnBackgroundColor
         rounded
+        stroke-gray-500
         px-1
         py-2
+        hover:stroke-white
         "
         >
           <TrashIcon />{" "}
         </button>
       </div>
-      <div className="flex flex-grow flex-col gap-4 p-2 overflow-x-hidden overflow-y-auto">
+      <div className="flex flex-grow flex-col gap-4 overflow-y-auto overflow-x-hidden p-2">
         <SortableContext items={tasksIds}>
           {tasks.map((task) => (
             <TaskCart
@@ -169,8 +169,8 @@ function ColumnContainer(props: Props) {
         </SortableContext>
       </div>
       <button
-        className="flex gap-2 items-center border-2  border-columnBackgroundColor
-       rounded-md p-4 border-x-columnBackgroundColor hover:bg-mainBackgroundColor hover:text-rose-500
+        className="border-columnBackgroundColor border-x-columnBackgroundColor hover:bg-mainBackgroundColor flex  items-center
+       gap-2 rounded-md border-2 p-4 hover:text-rose-500
        active:bg-black
        "
         onClick={() => createTask(column.id)}

@@ -45,8 +45,8 @@ function TaskCart({ task, deleteTask, updateTask }: TaskProps) {
         ref={setNodeRef}
         style={style}
         className="bg-mainBackgroundColor flex h-[100px] min-h-[100px]
-        cursor-grab items-center rounded-xl p-2.5 text-left hover:ring-2 hover:ring-inset hover:ring-rose-500 opacity-30 border-2
-        border-rose-500
+        cursor-grab items-center rounded-xl border-2 border-rose-500 p-2.5 text-left opacity-30 hover:ring-2 hover:ring-inset
+        hover:ring-rose-500
         "
       ></div>
     );
@@ -85,13 +85,13 @@ function TaskCart({ task, deleteTask, updateTask }: TaskProps) {
       {...listeners}
       {...attributes}
       onClick={toggleEditMode}
-      className="bg-mainBackgroundColor task flex h-[100px]
-  min-h-[100px] cursor-grab items-center rounded-xl p-2.5 text-left hover:ring-2 hover:ring-inset hover:ring-rose-500 relative
+      className="bg-mainBackgroundColor task relative flex
+  h-[100px] min-h-[100px] cursor-grab items-center rounded-xl p-2.5 text-left hover:ring-2 hover:ring-inset hover:ring-rose-500
   "
       onMouseEnter={() => setMouseIsOver(true)}
       onMouseLeave={() => setMouseIsOver(false)}
     >
-      <p className="my-auto h-[90%] overflow-y-auto overflow-x-hidden whitespace-pre-wrap">
+      <p className="my-auto break-all h-[90%] overflow-y-auto overflow-x-hidden whitespace-pre-wrap">
         {task.content}
       </p>
       {mouseIsOver && (
